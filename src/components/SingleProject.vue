@@ -4,7 +4,7 @@
       <h3 @click="toggleDetails">{{ project.title }}</h3>
       <div class="icons">
         <span class="material-icons">edit</span>
-        <span class="material-icons">delete</span>
+        <span class="material-icons" @click="deleteProject">delete</span>
         <span class="material-icons">done</span>
       </div>
     </div>
@@ -15,16 +15,22 @@
 </template>
 
 <script>
-export default {
+export default{ 
   props: ['project'],
   data() {
     return {
       isShowDetails: false,
+      uri: `http://localhost:3000/projects/${this.project.id}`,
     }
   },
   methods: {
     toggleDetails() {
       this.isShowDetails = !this.isShowDetails;
+    },
+    deleteProject() {
+      fetch(this.uri, { method: 'DELETE' })
+        .then(() => this.$emit('delete', this.project.id))
+        .catch(err => console.log(err.message))
     }
   }
 
