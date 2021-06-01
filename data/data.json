@@ -4,13 +4,19 @@
       "id": 1,
       "title": "Create new homepage logo",
       "details": "Lorem ipsum test\n",
-      "complete": false
+      "complete": true
     },
     {
       "id": 2,
       "title": "Make marketing email",
       "details": "Lorem ipsum",
       "complete": true
+    },
+    {
+      "title": "Make a new web site",
+      "details": "hgvh",
+      "complete": false,
+      "id": 3
     }
   ]
 }
